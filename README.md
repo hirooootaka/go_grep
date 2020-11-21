@@ -10,3 +10,5 @@ ex.
 ```
 go run checker.go /usr/local/Cellar .*\\.md
 ```
+
+(注) シンボリックリンクは未対応です。
