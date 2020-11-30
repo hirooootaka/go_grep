@@ -56,6 +56,7 @@ func main() {
 	fmt.Println("** init **")
 	for _, word := range TARGET_WORDS {
 		if word != "" {
+			wordExistMap[word] = false
 			regPatternMap[word] = regexp.MustCompile(word)
 		}
 	}
@@ -109,9 +110,6 @@ func findReg(fileName string) []string {
 		//fmt.Println(line)
 		for _, word := range TARGET_WORDS {
 			if word != "" {
-				if !wordExistMap[word] {
-					wordExistMap[word] = false
-				}
 				if regPatternMap[word].MatchString(line) {
 					wordExistMap[word] = true
 					s := fmt.Sprintf("[%s](%d): %s", word, num, line)
